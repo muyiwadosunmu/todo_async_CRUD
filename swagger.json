@@ -1,0 +1,23 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "A Basic CRUD using Node.js",
+      "description": "A Todo API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3500",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "0x_muyiwa@",
+        "description": "A bare API"
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"]
+  }
