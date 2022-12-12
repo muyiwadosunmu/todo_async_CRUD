@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3500;
 const tasks = require("./routes/tasks");
 const connectDB = require("./db/connect");
 require('dotenv').config()
+const errorHandlerMiddleware = require('./middlewares/error-handler');
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
@@ -23,14 +24,16 @@ const openapiSpecification = swaggerJsdoc(options);
 
 // Middlewares
 app.use(express.json());
+app.use(errorHandlerMiddleware);
 app.use('/api-docs', swaggerUi.serve)
+app.use("/api/v1/tasks", tasks);
 
 // Routes
 app.get("/hello", (req, res) => {
   res.send("Task Manager App");
 });
 
-app.use("/api/v1/tasks", tasks);
+
 
 // app.get('/api/v1/tasks')  -get all the tasks
 // app.post('/api/v1/tasks')  -create a new task
