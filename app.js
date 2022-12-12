@@ -1,7 +1,7 @@
 const { urlencoded } = require("express");
 const express = require("express");
 const app = express();
-const PORT = 3500;
+const PORT = process.env.PORT || 3500;
 
 const tasks = require("./routes/tasks");
 const connectDB = require("./db/connect");
